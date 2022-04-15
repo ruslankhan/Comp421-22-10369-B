@@ -1,0 +1,31 @@
+1.Download and install Kali Linux.
+2.Download and install MetaSploitable2.
+3.Start Kali Linux and MetaSploitable2.
+4.Type ifconfig in Kali Linux terminal so that an ip address is assigned to it.
+5.Assign ip address to MetaSploitable2 by typing code "sudo ifconfig eth0 (subnet location) and netmask()" as well but with the same subnet location as in Kali linux.
+6.Check the ip address in Metaspolitable2 by typing "ifconfig".
+7.Check if we are able to ping to MetaSloitable2 by enterin the "ping (ip address)" command in Kali Linux terminal. If it does we move futher.
+8.We type the ip address in the browser.
+9.If you are connected to the MetSploitable2 we will land on a webpage with different applications. 
+10.We will be using Mutilidae. So we will click on that and we will go to mutillidae application page.
+11.Go to "OWASP Top 10" under the "Home" button on the top left side and we will see the "OWASP Top 10" menu from that we will choose "A1-Injection" and then "SQLi-Extract Data" then "Usewr Info".
+12.After clicking on the "User Info" we will land on a login page which will have "Name" and "Password" on the screen.
+13.Run on "burpsuite" in Kali Linux.
+14.After it runs click on "next" and then click on "startburp".
+15.Click on "Proxy" from the options on the top. Then Below that menu click on "Options".
+16.Then click on "Intercept" make sure it is on.
+17.Goto settings on Mozilla Firefox and scroll down to Network Proxy, under that click on "Settings", set "Manual proxy configuration" check the ip address and the port, then click on okay.
+18.Now keep entering random credentials on the login page and keep seeing the burpsuite tool until it catch your request.
+19.On burpsuite if we get the message "upgrade-Insecure-Resource: 1" that means request has been captured.
+20.Save it, give it a name. Turn off the intercept now.
+21.Now go to preferences in Mozilla Firefox and set the default settings back.
+22.Now close all the browser tabs and run "SQL Map" tool by typing "sqlmap" in kali terminal.
+23.Now type command "sqlmap -r (location and file name that we saved) --dbs" to check vulnerabilities. It shows different injection point.
+24.Now choose the default option which is "0", it will show informations and different database names.
+25.Now we choose the database from the following by the command "sqlmap -r (location and file name that we saved) -D owasp10 --tables".
+26.It will again display options we go with default option that is "0".
+27.We will see then all the tables will be displayed that exists in that database.
+28.Now we if we choose to see whats in the table we use command "sqlmap -r (location and file name that we saved) -D owasp10 -T accounts --dump".
+29.This will display all the information in the "accounts table".
+30.We have successfully performed SQL injection attack and extracted data.
+
